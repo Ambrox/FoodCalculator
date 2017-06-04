@@ -6,5 +6,13 @@
         xmlns:local="clr-namespace:FoodCalculatorGui"
         mc:Ignorable="d"
         Title="AddFoodWindow" Height="202.386" Width="228.416">
-    <Grid />
+    <Grid>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="80" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus" TextAlignment="Center" />
+        <TextBox x:Name="weightTextBox" HorizontalAlignment="Left" Height="23" Margin="130,10,0,0" TextWrapping="Wrap" Text="Weight(g)" VerticalAlignment="Top" Width="80" TextAlignment="Center" GotFocus="weightTextBox_GotFocus" LostFocus="weightTextBox_LostFocus" />
+        <TextBox x:Name="caloriesTextBox" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Calories" VerticalAlignment="Top" Width="90" GotFocus="caloriesTextBox_GotFocus" LostFocus="caloriesTextBox_LostFocus" />
+        <TextBox x:Name="carbohydratesTextBox" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap" Text="Carbohydrates" VerticalAlignment="Top" Width="90" GotFocus="carbohydratesTextBox_GotFocus" LostFocus="carbohydratesTextBox_LostFocus" />
+        <TextBox x:Name="fatTextBox" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" Text="Fat" VerticalAlignment="Top" Width="90" GotFocus="fatTextBox_GotFocus" LostFocus="fatTextBox_LostFocus" />
+        <TextBox x:Name="proteinsTextBox" HorizontalAlignment="Left" Height="23" Margin="10,122,0,0" TextWrapping="Wrap" Text="Proteins" VerticalAlignment="Top" Width="90" GotFocus="proteinsTextBox_GotFocus" LostFocus="proteinsTextBox_LostFocus" />
+        <Button x:Name="addButton" Content="Add Food" HorizontalAlignment="Left" Margin="135,122,0,0" VerticalAlignment="Top" Width="75" />
+    </Grid>
 </Window>
