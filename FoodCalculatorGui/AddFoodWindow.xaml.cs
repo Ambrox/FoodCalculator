@@ -51,25 +51,41 @@ namespace FoodCalculatorGui
 
         private void carbohydratesTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (carbohydratesTextBox.Text == "Carbohydrates")
+                carbohydratesTextBox.Text = string.Empty;
         }
 
         private void carbohydratesTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
+            if (carbohydratesTextBox.Text == string.Empty)
+                carbohydratesTextBox.Text = "Carbohydrates";
         }
 
         private void fatTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (fatTextBox.Text == "Fat")
+                fatTextBox.Text = string.Empty;
         }
 
         private void fatTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
+            if (fatTextBox.Text == string.Empty)
+                fatTextBox.Text = "Fat";
         }
 
         private void proteinsTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (proteinsTextBox.Text == "Proteins")
+                proteinsTextBox.Text = string.Empty;
         }
 
         private void proteinsTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (proteinsTextBox.Text == string.Empty)
+                proteinsTextBox.Text = "Proteins";
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
         }
     }

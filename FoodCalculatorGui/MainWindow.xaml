@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodCalculatorGui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="506.579" Width="680.556">
-    <Grid>
+        Title="MainWindow" Height="506.579" Width="514.574">
+    <Grid Margin="0,0,2,0">
         <Button x:Name="addFoodButton" Content="Add new food" HorizontalAlignment="Left" Margin="10,443,0,0" VerticalAlignment="Top" Width="93" Click="addFoodButton_Click" />
+        <ListBox x:Name="listBoxFood" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="428" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="listBoxFood_SelectionChanged" />
+        <Grid HorizontalAlignment="Left" Height="195" Margin="115,271,0,0" VerticalAlignment="Top" Width="394">
+            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" />
+            <TextBox x:Name="weightTextBox" HorizontalAlignment="Left" Height="23" Margin="264,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+            <TextBox x:Name="caloriesTextBox" HorizontalAlignment="Left" Height="23" Margin="75,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" />
+            <TextBox x:Name="carbohydratesTextBox" HorizontalAlignment="Left" Height="23" Margin="200,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" />
+            <TextBox x:Name="fatTextBox" HorizontalAlignment="Left" Height="23" Margin="75,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" RenderTransformOrigin="0.486,0.401" />
+            <TextBox x:Name="proteinsTextBox" HorizontalAlignment="Left" Height="23" Margin="200,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" />
+            <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="157,162,0,10" Width="75" Click="addButton_Click" IsEnabled="False" />
+            <Label x:Name="label" Content="Fat:" HorizontalAlignment="Left" Margin="75,108,0,0" VerticalAlignment="Top" Width="55" />
+            <Label x:Name="label1" Content="Proteins:" HorizontalAlignment="Left" Margin="200,108,0,0" VerticalAlignment="Top" />
+            <Label x:Name="label2" Content="Calories:" HorizontalAlignment="Left" Margin="75,54,0,0" VerticalAlignment="Top" />
+            <Label x:Name="label3" Content="Carbohydrates:" HorizontalAlignment="Left" Margin="200,54,0,0" VerticalAlignment="Top" />
+            <Label x:Name="label4" Content="Name:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" />
+            <Label x:Name="label5" Content="Weight:" HorizontalAlignment="Left" Margin="264,0,0,0" VerticalAlignment="Top" />
+        </Grid>
+        <Label x:Name="label6" Content="Total:" HorizontalAlignment="Left" Margin="115,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="caloriesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="158,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="carbohydratesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="208,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="fatTotalLabel" Content="0" HorizontalAlignment="Left" Margin="297,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="proteinsTotalLabel" Content="0" HorizontalAlignment="Left" Margin="344,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="weightTotalLabel" Content="0" HorizontalAlignment="Left" Margin="397,191,0,0" VerticalAlignment="Top" />
+        <ListView x:Name="userFoodListView" HorizontalAlignment="Left" Height="176" Margin="115,10,0,0" VerticalAlignment="Top" Width="337" GotFocus="userFoodListView_GotFocus">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" />
+                    <GridViewColumn Header="Carbohydrates" DisplayMemberBinding="{Binding Carbohydrates}" />
+                    <GridViewColumn Header="Fat" DisplayMemberBinding="{Binding Fat}" Width="50" />
+                    <GridViewColumn Header="Proteins" DisplayMemberBinding="{Binding Proteins}" />
+                    <GridViewColumn Header="Weight" DisplayMemberBinding="{Binding Weight}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="deleteItemButton" Click="deleteItemButton_Click" Content="-" HorizontalAlignment="Left" Margin="457,12,0,0" VerticalAlignment="Top" Width="38" IsEnabled="False" />
     </Grid>
 </Window>

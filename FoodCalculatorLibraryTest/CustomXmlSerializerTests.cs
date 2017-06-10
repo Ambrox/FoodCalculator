@@ -31,7 +31,7 @@ namespace FoodCaculatorLibraryTest
         }
 
         [Test]
-        public void Deserialize_ShouldDeserializeStringToListOfIFoodObjects_PopulatesListWithRightValues()
+        public void Deserialize_ShouldDeserializeStringToListOfFoodObjects_PopulatesListWithRightValues()
         {
             List<Food> foods = new List<Food>();
 
@@ -61,7 +61,17 @@ namespace FoodCaculatorLibraryTest
         }
 
         [Test]
-        public void Serialize_ShouldSerializeListOfIFoodObjectsToXml_ReturnsXmlSerializedString()
+        public void Deserialize_ShouldNotAddFoodToListIfProvidedStringIsInvalid_ListDoesntContainAnyObjects()
+        {
+            List<Food> foods = new List<Food>();
+
+            CustomXmlSerializer serializer = new CustomXmlSerializer(foods);
+            serializer.Deserialize("<?xml version=\"1.0\" encoding=\"utf-16\"?><Meal><Ingredient><Name>Apple</Name><Carbohydrates>10</Carbohydrates><Fat>5</Fat><Proteins>13</Proteins><Weight>100</Weight></Ingredient></Meal>");
+            Assert.IsTrue(foods.Count == 0);
+        }
+
+        [Test]
+        public void Serialize_ShouldSerializeListOfFoodObjectsToXml_ReturnsXmlSerializedString()
         {
             CustomXmlSerializer serializer = new CustomXmlSerializer(_foods);
             string result = serializer.Serialize();

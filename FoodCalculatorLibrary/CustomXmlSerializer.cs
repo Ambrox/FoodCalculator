@@ -92,8 +92,8 @@ namespace FoodCalcultorLibrary
             {
                 using (XmlReader reader = XmlReader.Create(sr))
                 {
-                    string name = "";
-                    int calories = 0, carbohydrates = 0, fat = 0, proteins = 0, weight = 0;
+                    string name = string.Empty;
+                    int calories = -1, carbohydrates = -1, fat = -1, proteins = -1, weight = -1;
                     while (reader.Read())
                     {
                         if (reader.NodeType == XmlNodeType.Element)
@@ -125,7 +125,10 @@ namespace FoodCalcultorLibrary
 
                                 case "Weight":
                                     weight = int.Parse(reader.ReadString());
-                                    _foods.Add(new Food(name, calories, carbohydrates, fat, proteins, weight));
+                                    if (name != string.Empty && calories != -1 && carbohydrates != -1 && fat != -1 && proteins != -1 && weight != -1)
+                                    {
+                                        _foods.Add(new Food(name, calories, carbohydrates, fat, proteins, weight));
+                                    }
                                     break;
                             }
                         }
