@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using FoodCalcultorLibrary;
+using System.Collections.Generic;
+using System.IO;
 
 namespace FoodCalculatorGui
 {
@@ -23,18 +26,6 @@ namespace FoodCalculatorGui
         {
             if (nameTextBox.Text == string.Empty)
                 nameTextBox.Text = "Name";
-        }
-
-        private void weightTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (weightTextBox.Text == "Weight(g)")
-                weightTextBox.Text = string.Empty;
-        }
-
-        private void weightTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (weightTextBox.Text == string.Empty)
-                weightTextBox.Text = "Weight(g)";
         }
 
         private void caloriesTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -87,6 +78,17 @@ namespace FoodCalculatorGui
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            if (int.TryParse(caloriesTextBox.Text, out int calories) && int.TryParse(carbohydratesTextBox.Text, out int carbohydrates) && int.TryParse(fatTextBox.Text, out int fat) && int.TryParse(proteinsTextBox.Text, out int proteins) && int.TryParse(weightTextBox.Text, out int weight))
+            {
+                App.Foods.Add(new Food(nameTextBox.Text, calories, carbohydrates, fat, proteins, weight));
+
+                CustomXmlSerializer serializer = new CustomXmlSerializer(App.Foods);
+                string output = serializer.Serialize();
+
+                File.WriteAllText("FoodDatabase.xml", output);
+            }
+            else
+                MessageBox.Show("Please input correct data");
         }
     }
 }

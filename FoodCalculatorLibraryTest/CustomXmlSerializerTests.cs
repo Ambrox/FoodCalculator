@@ -2,13 +2,14 @@
 using FoodCalcultorLibrary;
 using NUnit.Framework;
 using Moq;
+using System.Collections.ObjectModel;
 
 namespace FoodCaculatorLibraryTest
 {
     [TestFixture]
     public class CustomXmlSerializerTests
     {
-        private List<Food> _foods = new List<Food>();
+        private ObservableCollection<Food> _foods = new ObservableCollection<Food>();
 
         [OneTimeSetUp]
         public void Initialize()
@@ -33,7 +34,7 @@ namespace FoodCaculatorLibraryTest
         [Test]
         public void Deserialize_ShouldDeserializeStringToListOfFoodObjects_PopulatesListWithRightValues()
         {
-            List<Food> foods = new List<Food>();
+            ObservableCollection<Food> foods = new ObservableCollection<Food>();
 
             CustomXmlSerializer serializer = new CustomXmlSerializer(foods);
             serializer.Deserialize("<?xml version=\"1.0\" encoding=\"utf-16\"?><Meal><Ingredient><Name>Apple</Name><Calories>15</Calories><Carbohydrates>10</Carbohydrates><Fat>5</Fat><Proteins>13</Proteins><Weight>100</Weight></Ingredient><Ingredient><Name>Melon</Name><Calories>8</Calories><Carbohydrates>12</Carbohydrates><Fat>22</Fat><Proteins>33</Proteins><Weight>100</Weight></Ingredient><Ingredient><Name>Orange</Name><Calories>1</Calories><Carbohydrates>2</Carbohydrates><Fat>3</Fat><Proteins>4</Proteins><Weight>100</Weight></Ingredient></Meal>");
@@ -63,7 +64,7 @@ namespace FoodCaculatorLibraryTest
         [Test]
         public void Deserialize_ShouldNotAddFoodToListIfProvidedStringIsInvalid_ListDoesntContainAnyObjects()
         {
-            List<Food> foods = new List<Food>();
+            ObservableCollection<Food> foods = new ObservableCollection<Food>();
 
             CustomXmlSerializer serializer = new CustomXmlSerializer(foods);
             serializer.Deserialize("<?xml version=\"1.0\" encoding=\"utf-16\"?><Meal><Ingredient><Name>Apple</Name><Carbohydrates>10</Carbohydrates><Fat>5</Fat><Proteins>13</Proteins><Weight>100</Weight></Ingredient></Meal>");

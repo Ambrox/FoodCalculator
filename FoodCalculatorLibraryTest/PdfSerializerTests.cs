@@ -2,13 +2,14 @@
 using FoodCalcultorLibrary;
 using Moq;
 using NUnit.Framework;
+using System.Collections.ObjectModel;
 
 namespace FoodCaculatorTest
 {
     [TestFixture]
     public class PdfSerializerLibraryTests
     {
-        private List<Food> _foods = new List<Food>();
+        private ObservableCollection<Food> _foods = new ObservableCollection<Food>();
 
         [OneTimeSetUp]
         public void Initialize()

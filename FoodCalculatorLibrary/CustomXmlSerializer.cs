@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml;
 
@@ -6,7 +7,7 @@ namespace FoodCalcultorLibrary
 {
     public class CustomXmlSerializer : DataSerializer
     {
-        public CustomXmlSerializer(List<Food> foods) : base(foods)
+        public CustomXmlSerializer(ObservableCollection<Food> foods) : base(foods)
         {
         }
 

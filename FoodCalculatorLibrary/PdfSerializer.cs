@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 
 namespace FoodCalcultorLibrary
 {
     public class PdfSerializer : DataSerializer
     {
-        public PdfSerializer(List<Food> foods) : base(foods)
+        public PdfSerializer(ObservableCollection<Food> foods) : base(foods)
         {
         }
 

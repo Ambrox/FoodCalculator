@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FoodCalculatorLibrary">
-      <HintPath>..\FoodCalculatorLibrary\bin\Debug\FoodCalculatorLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -103,6 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodCalculatorLibrary\FoodCalculatorLibrary.csproj">
+      <Project>{b6a9e0d5-e0e1-47e8-9095-7392409694b9}</Project>
+      <Name>FoodCalculatorLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
