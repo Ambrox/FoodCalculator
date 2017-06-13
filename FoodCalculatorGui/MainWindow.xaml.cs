@@ -1,9 +1,10 @@
 ﻿using System.Windows;
 using FoodCalcultorLibrary;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.IO;
+using Microsoft.Win32;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace FoodCalculatorGui
 {
@@ -69,6 +70,48 @@ namespace FoodCalculatorGui
         private void userFoodListView_GotFocus(object sender, RoutedEventArgs e)
         {
             deleteItemButton.IsEnabled = true;
+        }
+
+        private void exportToPdfButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pdf files(*.pdf) | *.pdf";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                PdfSerializer serializer = new PdfSerializer(App.UserFoods);
+                string result = serializer.SerializeWithSummary();
+                string[] lines = result.Split('\n');
+
+                PdfDocument document = new PdfDocument();
+                document.Info.Title = saveFileDialog.SafeFileName;
+
+                PdfPage page = document.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+                XFont font = new XFont("Verdana", 10, XFontStyle.BoldItalic);
+
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    gfx.DrawString(line, font, XBrushes.Black,
+                        new XRect(0, 0 + i, page.Width, page.Height),
+                        XStringFormats.TopLeft);
+                    i += 10;
+                }
+
+                document.Save(saveFileDialog.FileName);
+            }
+        }
+
+        private void exportToXmlButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Xml files(*.xml) | *.xml";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                CustomXmlSerializer serialize = new CustomXmlSerializer(App.UserFoods);
+                string result = serialize.SerializeWithSummary();
+                File.WriteAllText(saveFileDialog.FileName, result);
+            }
         }
     }
 }

@@ -25,11 +25,11 @@
             <Label x:Name="label5" Content="Mass(in grams):" HorizontalAlignment="Left" Margin="264,0,0,0" VerticalAlignment="Top" />
         </Grid>
         <Label x:Name="label6" Content="Total:" HorizontalAlignment="Left" Margin="115,191,0,0" VerticalAlignment="Top" />
-        <Label x:Name="caloriesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="158,191,0,0" VerticalAlignment="Top" />
-        <Label x:Name="carbohydratesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="208,191,0,0" VerticalAlignment="Top" />
-        <Label x:Name="fatTotalLabel" Content="0" HorizontalAlignment="Left" Margin="297,191,0,0" VerticalAlignment="Top" />
-        <Label x:Name="proteinsTotalLabel" Content="0" HorizontalAlignment="Left" Margin="344,191,0,0" VerticalAlignment="Top" />
-        <Label x:Name="weightTotalLabel" Content="0" HorizontalAlignment="Left" Margin="397,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="caloriesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="160,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="carbohydratesTotalLabel" Content="0" HorizontalAlignment="Left" Margin="220,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="fatTotalLabel" Content="0" HorizontalAlignment="Left" Margin="305,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="proteinsTotalLabel" Content="0" HorizontalAlignment="Left" Margin="354,191,0,0" VerticalAlignment="Top" />
+        <Label x:Name="weightTotalLabel" Content="0" HorizontalAlignment="Left" Margin="408,191,0,0" VerticalAlignment="Top" />
         <ListView x:Name="userFoodListView" HorizontalAlignment="Left" Height="176" Margin="115,10,0,0" VerticalAlignment="Top" Width="337" GotFocus="userFoodListView_GotFocus">
             <ListView.View>
                 <GridView>
@@ -43,5 +43,8 @@
             </ListView.View>
         </ListView>
         <Button x:Name="deleteItemButton" Click="deleteItemButton_Click" Content="-" HorizontalAlignment="Left" Margin="457,12,0,0" VerticalAlignment="Top" Width="38" IsEnabled="False" />
+        <Label x:Name="label7" Content="Export to:" HorizontalAlignment="Left" Margin="115,217,0,0" VerticalAlignment="Top" />
+        <Button x:Name="exportToPdfButton" Click="exportToPdfButton_Click" Content="PDF" HorizontalAlignment="Left" Margin="181,219,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="exportToXmlButton" Click="exportToXmlButton_Click" Content="XML" HorizontalAlignment="Left" Margin="261,220,0,0" VerticalAlignment="Top" Width="75" />
     </Grid>
 </Window>
